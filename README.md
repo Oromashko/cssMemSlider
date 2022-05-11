@@ -1,1 +1,1 @@
-# CSS Mem Slider
+# CSS Mem Slider for RSS
