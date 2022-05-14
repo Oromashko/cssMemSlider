@@ -10,12 +10,34 @@
 body {
 	background-color: grey;
 }
-.wrapper {
-   width: 504px;
-   height: 504px;
-	margin: 15% auto 0; 
-	position: flex;
-	aspect-ratio: auto
+@media (min-width: 504px){ 
+   .wrapper {
+      width: 504px;
+      height: 504px;
+	   margin: 15% auto 0; 
+	   position: flex;
+	   aspect-ratio: auto
+   }
+   .slide1 { background-image: url("../assets/images/i-love-mornings-because-im-asleep-for-most-of-them-rpD.png"); }
+   .slide2 { background-image: url("../assets/images/may-your-diet-last-longer-than-your-explanation-of-your-diet-zS2.png"); }
+   .slide3 { background-image: url("../assets/images/please-stop-scheduling-friday-Wn6.png"); }
+   .slide4 { background-image: url("../assets/images/sorry-sleep-at-work-funny-ecard-MNB.png"); }
+
+}
+@media (max-width: 503.99px) {
+   .wrapper {
+      width: 300px;
+      height: 300px;
+	   margin: 15% auto 0; 
+	   position: block;
+	   aspect-ratio: auto
+   }
+   .slide1 { background-image: url("../assets/images/i-love-mornings-because-im-asleep-for-most-of-them-rpD_300x300.png"); }
+   .slide2 { background-image: url("../assets/images/may-your-diet-last-longer-than-your-explanation-of-your-diet-zS2_300x300.png"); }
+   .slide3 { background-image: url("../assets/images/please-stop-scheduling-friday-Wn6_300x300.png"); }
+   .slide4 { background-image: url("../assets/images/sorry-sleep-at-work-funny-ecard-MNB_300x300.png"); }
+
+
 }
 
 .slider {
@@ -39,15 +61,7 @@ body {
 	position: relative;
 	width: inherit;
 }
-.mems {
-   height: 8px;
-   width: 50px;
-   color: black;
-}
-.slide1 { background-image: url("../assets/images/i-love-mornings-because-im-asleep-for-most-of-them-rpD.png"); }
-.slide2 { background-image: url("../assets/images/may-your-diet-last-longer-than-your-explanation-of-your-diet-zS2.png"); }
-.slide3 { background-image: url("../assets/images/please-stop-scheduling-friday-Wn6.png"); }
-.slide4 { background-image: url("../assets/images/sorry-sleep-at-work-funny-ecard-MNB.png"); }
+
 
 .wrapper .controls {
 	left: 50%;
