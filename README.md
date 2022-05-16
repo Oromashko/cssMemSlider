@@ -1,2 +1,2 @@
 # CSS Mem Slider for RSS 
-https://github.com/Oromashko/cssMemSlider.git
+https://oromashko.github.io/cssMemSlider/cssMemSlider/index.html
