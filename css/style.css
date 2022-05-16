@@ -49,7 +49,7 @@ input[type="radio" i] {
    border: initial;
 }
 .slider {
-   background-color: grey
+   background-color: grey;
     width: 50%;
     display: flex;
     align-items: center;
@@ -137,8 +137,8 @@ img {
    align-items: center;
    justify-content: center;
    width: 70%;
-   height:100%;
-    overflow: hidden;
+   /*height:100%;*/
+    overflow: scroll;
     overflow-wrap:break-word;
 }
 .mems {
@@ -147,7 +147,7 @@ img {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    overflow: hidden;
+    overflow: scroll;
    overflow-wrap:break-word;
    justify-content: center;
     
@@ -183,8 +183,8 @@ img {
       }
       .slider {
          background-color: lightgrey;
-          width: 80%;
-          height: 80%;
+            width: 80%;
+            height: 80%;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -199,7 +199,7 @@ p {
 }
 .labels {
    max-width: 9em;
-   width: 30%;
+   width: 70%;
    display: flex;
    align-items: center;
    justify-content: space-between;  
