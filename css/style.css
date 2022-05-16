@@ -5,172 +5,358 @@
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
+} 
+
+body {	
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: 100vh;
+   width: 100vw;
+   justify-content: center; 
+   background-color: lightgrey;
 }
 
-body {
-	background-color: grey;
+.wrapper {
+
+   max-width: 100%;
+   width: 100%;
+   max-height: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   /*overflow: hidden;*/
+   transition: 0.3s;
+   justify-content: center; 
+   align-items:center;
+} 
+.wrapper input[name=point] {
+	visibility: hidden;
+    height: 0%;
+    width: 0%;
 }
-@media (min-width: 504px){ 
-   .wrapper {
-      width: 504px;
-      height: 504px;
-	   margin: 15% auto 0; 
-	   position: flex;
-	   aspect-ratio: auto
-   }
-   .slide1 { background-image: url("../assets/images/i-love-mornings-because-im-asleep-for-most-of-them-rpD.png"); }
-   .slide2 { background-image: url("../assets/images/may-your-diet-last-longer-than-your-explanation-of-your-diet-zS2.png"); }
-   .slide3 { background-image: url("../assets/images/please-stop-scheduling-friday-Wn6.png"); }
-   .slide4 { background-image: url("../assets/images/sorry-sleep-at-work-funny-ecard-MNB.png"); }
-
+.wrapper input[type=radio] {
+	cursor: pointer;
 }
-@media (max-width: 503.99px) {
-   .wrapper {
-      width: 300px;
-      height: 300px;
-	   margin: 15% auto 0; 
-	   position: block;
-	   aspect-ratio: auto
-   }
-   .slide1 { background-image: url("../assets/images/i-love-mornings-because-im-asleep-for-most-of-them-rpD_300x300.png"); }
-   .slide2 { background-image: url("../assets/images/may-your-diet-last-longer-than-your-explanation-of-your-diet-zS2_300x300.png"); }
-   .slide3 { background-image: url("../assets/images/please-stop-scheduling-friday-Wn6_300x300.png"); }
-   .slide4 { background-image: url("../assets/images/sorry-sleep-at-work-funny-ecard-MNB_300x300.png"); }
-
-
+input {
+   writing-mode: horizontal-tb; 
 }
 
-.slider {
-	background-color: #ddd;
-	height: inherit;
-	overflow: hidden;
-	flex-grow: 1;
-	width: inherit;
-   
-	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
-	-moz-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
-	-o-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
-	box-shadow: 0 0 20px rgba(0, 0, 0, .5);
-}
-.wrapper > input {
-	display: none;
+input[type="radio" i] {
+   background-color: initial;
    cursor: pointer;
+   appearance: auto;
+   border: initial;
 }
-.slides {
-	height: inherit;
-	position: relative;
-	width: inherit;
-}
-
-
-.wrapper .controls {
-	left: 50%;
-	margin-left: -98px;
-	position: relative;
-}
-
-.wrapper label {
-	cursor: pointer;
-	display: inline-block;
-	/*height: 8px;*/
-	margin: 25px 12px 0 16px;
-	position: relative;
-/*	width: 8px;*/
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	-o-border-radius: 50%;
-	border-radius: 50%;
-}
-
-.wrapper label:after {
-	border: 2px solid lightblue;
-	content: " ";
-	display: block;
-	height: 12px;
-	left: -4px;
-	position: absolute;
-	top: -4px;
-	width: 12px;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	-o-border-radius: 50%;
-	border-radius: 50%;
-}
-.wrapper label {
-	cursor: pointer;
-	display: inline-block;
-	height: 8px;
-	margin: 25px 12px 0 16px;
-	position: relative;
-	width: 8px;
-	-webkit-border-radius: 50%;
-	-moz-border-radius: 50%;
-	-o-border-radius: 50%;
-	border-radius: 50%;
-	-webkit-transition: background ease-in-out .5s;
-	-moz-transition: background ease-in-out .5s;
-	-o-transition: background ease-in-out .5s;
-	transition: background ease-in-out .5s;
-   
-}
-
-
-#slide1:checked ~ .controls label:nth-of-type(1),
-#slide2:checked ~ .controls label:nth-of-type(2),
-#slide3:checked ~ .controls label:nth-of-type(3),
-#slide4:checked ~ .controls label:nth-of-type(4){
-	background: lightblue;
-}
-.wrapper label:hover {
-   background: white;
+.slider {
+   background-color: lightgrey;
+    width: 90%;
+    /*height: 70%;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 70%;
 }
 
 .slides {
-	height: inherit;
-	opacity: 0;
-	position: absolute;
-	width: inherit;
-	z-index: 0;
-	-webkit-transform: scale(1.5);
-	-moz-transform: scale(1.5);
-	-o-transform: scale(1.5);
-	transform: scale(1.5);
-	-webkit-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+   display: flex; 
+   overflow:hidden;
+   max-height: 100%;
+   justify-content: center;
+}
+.slides img{
+   --transition-time: 1s;
+   transition: var(--transition-time) ease;
+   transform: scale(1);
+   /*transition-duration: 1s;*/
+  /* -webkit-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
 	-moz-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
 	-o-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
 	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+*/
+}
+.slide1, .slide2, .slide3, .slide4 {
+   display:none
+}
+.mem_text {
+   display:none
 }
 
-#slide1:checked ~ .slider > .slide1,
-#slide2:checked ~ .slider > .slide2,
-#slide3:checked ~ .slider > .slide3,
-#slide4:checked ~ .slider > .slide4 {
-	opacity: 1;
-	z-index: 1;
+#radio1:checked ~ .slider> .slide1,
+#radio2:checked ~ .slider> .slide2, 
+#radio3:checked ~ .slider> .slide3,
+#radio4:checked ~ .slider> .slide4
+ {  
+ /*  opacity: 1;
+	z-index: 1;*/
+   --transition-time: 1s;
+   transition: var(--transition-time) ease;
+   transform: scale(1);
+	/*-webkit-transform: scale(1.2);
+	-moz-transform: scale(1.2);
+	-o-transform: scale(1.2);
+	transform: scale(1.2);*/
+  display: flex;
+}
+
+#radio1:disabled ~ .slider> .slide1
+
+ {   
+  /* opacity: 1;
+	z-index: 1;*/
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
 	-o-transform: scale(1);
 	transform: scale(1);
+   transition-duration: 1s;
+   /*-webkit-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+	-moz-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+	-o-transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+   */
+   display: flex;
 }
-#mem1, #mem2, #mem3, #mem4 {
-   display: none;
+
+
+#radio1:checked ~ .controls > .mems_wrapper >.mems > #mem1 {
+
+  /* margin-left: 0;*/
+     display: flex;
+  }
+#radio2:checked ~ .controls > .mems_wrapper >.mems> #mem2 {
+
+   /*margin-left: 0;*/
+     display: flex;
+  }
+  #radio3:checked ~ .controls > .mems_wrapper > .mems> #mem3 {
+
+   /*  margin-left: 0;*/
+     display: flex;
+  }  
+  #radio4:checked ~ .controls > .mems_wrapper > .mems > #mem4 {
+
+   /*  margin-left: 0;*/
+     display: flex;
+  }
+img {
+   object-fit: cover;
+   /*margin: 0 auto;*/
+   max-width: 100%;
+   height: auto;
 }
-#slide1:checked~.mem_text #mem1 {
-      display:block;
+.controls {
+
+   width: 80%;
+   max-height: 20%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
 }
-#slide2:checked~.mem_text #mem2 {
-   display:block;
+.mems_wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   height:100%;
+    /*overflow: hidden;*/
+    overflow-wrap:break-word;
 }
-#slide3:checked~.mem_text #mem3 {
-   display:block;
-}
-#slide4:checked~.mem_text #mem4 {
-   display:block;
+.mems {
+   height: 100%;
+   width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+   /* overflow: hidden;*/
+   overflow-wrap:break-word;
+   justify-content: center;
+    
 }
 .mem_text {
    font-family: Arial, Helvetica, sans-serif;
    font-size: 1.5rem;
    color: black;
+   align-items:center;
+
+   overflow-wrap:break-word;
+
+
 }
+@media (max-width: 503.99px), (max-height: 604.7px){
+   .mem_text{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      color: black;
+      align-items:center;
 
+      overflow-wrap:break-word;   
+      }
 
+      .controls {
+
+         width: 80%;
+          height: 20%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+      }
+      .slider {
+         background-color: lightgrey;
+          width: 80%;
+          height: 80%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+         
+      } 
+   }
+p {
+
+   display: block;
+    /*margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;*/
+}
+.labels {
+   max-width: 9em;
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;  
+}
+label {
+
+   background-color: transparent;
+    height: 2em;
+    width: 2em;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+/*#radio1:checked ~ .controls > .labels > label[for="radio1"]> .labels,
+#radio2:checked ~ .controls > .labels > label[for="radio2"]> .labels,
+#radio3:checked ~ .controls > .labels > label[for="radio3"]> .labels,
+#radio4:checked ~ .controls > .labels > label[for="radio4"]> .labels
+{
+   background-color: grey ;
+   transform: scale(1.2);
+   transition-duration: 0.5ms;
+}*/
+.switcher {
+   height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    transition: ease-in-out 0.3s;
+    background-color: white;    
+
+}
+.radiobox {
+
+   display:none;
+}
+.radiobox+.labels>label {
+
+   display: flex;
+   user-select: none;
+   align-items: center;
+   -webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+/*.radiobox+.labels>label:before{
+   content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}*/
+/*.radiobox:checked+label::before{
+
+   border-color: #0b76ef;
+   background-color: #0b76ef;
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}*/
+/* стили при наведении курсора на checkbox */
+/*.radiobox:not(:disabled):not(:checked)+label:hover::before {
+   border-color: #ed18aa;
+ }*/
+ /* стили для активного состояния чекбокса (при нажатии на него) */
+ /*.radiobox:not(:disabled):active+label::before {
+   background-color: #b3d7ff;
+   border-color: #b3d7ff;
+ }*/
+ /* стили для радиобокса, находящегося в фокусе */
+ /*.radiobox:focus+label::before {
+   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+ }*/
+ /* стили для радиобокса, находящегося в фокусе и не находящегося в состоянии checked */
+.radiobox:hover:not(:checked)+label::before {
+   border-color: #37c653;
+ }
+ /* стили для радиобокса, находящегося в состоянии disabled */
+ .radiobox:disabled+label::before {
+   background-color: #e9ecef;
+ }
+#radio1:checked ~ .controls > .labels label:nth-of-type(1),
+#radio2:checked ~ .controls > .labels label:nth-of-type(2),
+#radio3:checked ~ .controls > .labels label:nth-of-type(3),
+#radio4:checked ~ .controls > .labels label:nth-of-type(4){
+	background: lightsteelblue
+   
+}
+#radio1:checked ~ .controls > .labels label[for="radio1"] .switcher,
+#radio2:checked ~ .controls > .labels label[for="radio2"] .switcher,
+#radio3:checked ~ .controls > .labels label[for="radio3"] .switcher,
+#radio4:checked ~ .controls > .labels label[for="radio4"] .switcher{
+	background: rgb(11, 152, 222)
+   
+}
+#radio1:hover ~ .controls > .labels label[for="radio1"] .switcher,
+#radio2:hover ~ .controls > .labels label[for="radio2"] .switcher,
+#radio3:hover ~ .controls > .labels label[for="radio3"] .switcher,
+#radio4:hover ~ .controls > .labels label[for="radio4"] .switcher{
+	background: lightpink;
+   
+}
+/*#radio1:checked ~ .slider > .slide1 img,
+#radio2:checked ~ .slider > .slide2 img,
+#radio3:checked ~ .slider > .slide3 img,
+#radio4:checked ~ .slider > .slide4 img{
+	transform: scale(1.2);
+   transition-duration: 0.5ms;
+   
+}*/
+/*.wrapper > .controls > .labels label::after 
+{
+border: 2px solid lightblue;
+content: " ";
+display: block;
+height: 12px;
+left: -4px;
+position: absolute;
+top: -4px;
+width: 12px;
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+-o-border-radius: 50%;
+border-radius: 50%;
+}*/
