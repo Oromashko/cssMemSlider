@@ -49,9 +49,9 @@ input[type="radio" i] {
    border: initial;
 }
 .slider {
-   background-color: lightgrey;
-    width: 90%;
-    /*height: 70%;*/
+   background-color: grey
+    width: 50%;
+   /* height: 50%;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -83,46 +83,39 @@ input[type="radio" i] {
 #radio4:checked ~ .slider> .slide4
  {  
  
-   --transition-time: 1s;
-   transition: var(--transition-time) ease;
-   transform: scale(1);
-	
-  display: flex;
+   animation-duration: 2s;
+   animation-name: slidein;
+	display: flex;
 }
 
 #radio1:disabled ~ .slider> .slide1
 
- {   
-  
-	-webkit-transform: scale(1);
-	-moz-transform: scale(1);
-	-o-transform: scale(1);
-	transform: scale(1);
-   transition-duration: 1s;
-   
+ { 
    display: flex;
 }
 
 
-#radio1:checked ~ .controls > .mems_wrapper >.mems > #mem1 {
+#radio1:checked ~ .controls > .mems_wrapper >.mems > #mem1,
+#radio2:checked ~ .controls > .mems_wrapper >.mems> #mem2,
+#radio3:checked ~ .controls > .mems_wrapper > .mems> #mem3,
+#radio4:checked ~ .controls > .mems_wrapper > .mems > #mem4
+ {
+     display: flex;
+     animation-duration: 2s;
+      animation-name: slidein;
+  }
 
+  @keyframes slidein {
+   from {
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+     
+    }
   
-     display: flex;
-  }
-#radio2:checked ~ .controls > .mems_wrapper >.mems> #mem2 {
-
-   
-     display: flex;
-  }
-  #radio3:checked ~ .controls > .mems_wrapper > .mems> #mem3 {
-
-
-     display: flex;
-  }  
-  #radio4:checked ~ .controls > .mems_wrapper > .mems > #mem4 {
-
-   
-     display: flex;
+    to {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }  
   }
 img {
    object-fit: cover;
@@ -132,7 +125,7 @@ img {
 }
 .controls {
 
-   width: 80%;
+   width: 50%;
    max-height: 20%;
     display: flex;
     flex-direction: column;
@@ -144,9 +137,9 @@ img {
    display: flex;
    align-items: center;
    justify-content: center;
-   width: 100%;
+   width: 70%;
    height:100%;
-    /*overflow: hidden;*/
+    overflow: hidden;
     overflow-wrap:break-word;
 }
 .mems {
@@ -155,7 +148,7 @@ img {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-   /* overflow: hidden;*/
+    overflow: hidden;
    overflow-wrap:break-word;
    justify-content: center;
     
@@ -207,7 +200,7 @@ p {
 }
 .labels {
    max-width: 9em;
-   width: 100%;
+   width: 30%;
    display: flex;
    align-items: center;
    justify-content: space-between;  
@@ -219,6 +212,7 @@ label {
     width: 2em;
     transition: ease-in-out 0.3s;
     cursor: pointer;
+    padding: 0.1em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -271,6 +265,13 @@ label {
 #radio3:hover ~ .controls > .labels label[for="radio3"] .switcher,
 #radio4:hover ~ .controls > .labels label[for="radio4"] .switcher{
 	background: grey;
+   
+}
+#radio1:active ~ .controls > .labels label[for="radio1"] .switcher,
+#radio2:active ~ .controls > .labels label[for="radio2"] .switcher,
+#radio3:active ~ .controls > .labels label[for="radio3"] .switcher,
+#radio4:active ~ .controls > .labels label[for="radio4"] .switcher{
+	background: lightgreen;
    
 }
 
