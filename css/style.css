@@ -1,0 +1,276 @@
+* {
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+} 
+
+body {	
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   height: 100vh;
+   width: 100vw;
+   justify-content: center; 
+   background-color: lightgrey;
+}
+
+.wrapper {
+
+   max-width: 100%;
+   width: 100%;
+   max-height: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   /*overflow: hidden;*/
+   transition: 0.3s;
+   justify-content: center; 
+   align-items:center;
+} 
+.wrapper input[name=point] {
+	visibility: hidden;
+    height: 0%;
+    width: 0%;
+}
+.wrapper input[type=radio] {
+	cursor: pointer;
+}
+input {
+   writing-mode: horizontal-tb; 
+}
+
+input[type="radio" i] {
+   background-color: initial;
+   cursor: pointer;
+   appearance: auto;
+   border: initial;
+}
+.slider {
+   background-color: grey;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 70%;
+}
+
+.slides {
+   display: flex; 
+   overflow:hidden;
+   max-height: 100%;
+   justify-content: center;
+}
+.slides img{
+   --transition-time: 1s;
+   transition: var(--transition-time) ease;
+   transform: scale(1);
+   
+}
+.slide1, .slide2, .slide3, .slide4 {
+   display:none
+}
+.mem_text {
+   display:none
+}
+
+#radio1:checked ~ .slider> .slide1,
+#radio2:checked ~ .slider> .slide2, 
+#radio3:checked ~ .slider> .slide3,
+#radio4:checked ~ .slider> .slide4
+ {  
+ 
+   animation-duration: 2s;
+   animation-name: slidein;
+	display: flex;
+}
+
+#radio1:disabled ~ .slider> .slide1
+
+ { 
+   display: flex;
+}
+
+
+#radio1:checked ~ .controls > .mems_wrapper >.mems > #mem1,
+#radio2:checked ~ .controls > .mems_wrapper >.mems> #mem2,
+#radio3:checked ~ .controls > .mems_wrapper > .mems> #mem3,
+#radio4:checked ~ .controls > .mems_wrapper > .mems > #mem4
+ {
+     display: flex;
+     animation-duration: 2s;
+      animation-name: slidein;
+  }
+
+  @keyframes slidein {
+   from {
+      -webkit-transform: translateX(-100%);
+      transform: translateX(-100%);
+     
+    }
+  
+    to {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+    }  
+  }
+img {
+   object-fit: cover;
+   
+   max-width: 100%;
+   height: auto;
+}
+.controls {
+
+   width: 50%;
+   max-height: 20%;
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+.mems_wrapper {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 70%;
+   /*height:100%;*/
+    overflow: scroll;
+    overflow-wrap:break-word;
+}
+.mems {
+   height: 100%;
+   width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow: scroll;
+   overflow-wrap:break-word;
+   justify-content: center;
+    
+}
+.mem_text {
+   font-family: Arial, Helvetica, sans-serif;
+   font-size: 1.5rem;
+   color: black;
+   align-items:center;
+
+   overflow-wrap:break-word;
+
+
+}
+@media (max-width: 503.99px), (max-height: 604.7px){
+   .mem_text{
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      color: black;
+      align-items:center;
+
+      overflow-wrap:break-word;   
+      }
+
+      .controls {
+
+         width: 80%;
+          height: 20%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+      }
+      .slider {
+         background-color: lightgrey;
+            width: 80%;
+            height: 80%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+         
+      } 
+   }
+p {
+
+   display: block;
+    
+}
+.labels {
+   max-width: 9em;
+   width: 70%;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;  
+}
+label {
+
+   background-color: transparent;
+    height: 2em;
+    width: 2em;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+    padding: 0.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.switcher {
+   height: 1em;
+    width: 1em;
+    border-radius: 50%;
+    transition: ease-in-out 0.3s;
+    background-color: white;    
+
+}
+.radiobox {
+
+   display:none;
+}
+.radiobox+.labels>label {
+
+   display: flex;
+   user-select: none;
+   align-items: center;
+   -webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+}
+
+
+#radio1:checked ~ .controls > .labels label:nth-of-type(1),
+#radio2:checked ~ .controls > .labels label:nth-of-type(2),
+#radio3:checked ~ .controls > .labels label:nth-of-type(3),
+#radio4:checked ~ .controls > .labels label:nth-of-type(4){
+	background: lightsteelblue
+   
+}
+#radio1:checked ~ .controls > .labels label[for="radio1"] .switcher,
+#radio2:checked ~ .controls > .labels label[for="radio2"] .switcher,
+#radio3:checked ~ .controls > .labels label[for="radio3"] .switcher,
+#radio4:checked ~ .controls > .labels label[for="radio4"] .switcher{
+	background: rgb(11, 152, 222)
+   
+}
+#radio1:hover ~ .controls > .labels label[for="radio1"] .switcher,
+#radio2:hover ~ .controls > .labels label[for="radio2"] .switcher,
+#radio3:hover ~ .controls > .labels label[for="radio3"] .switcher,
+#radio4:hover ~ .controls > .labels label[for="radio4"] .switcher{
+	background: grey;
+   
+}
+#radio1:active ~ .controls > .labels label[for="radio1"] .switcher,
+#radio2:active ~ .controls > .labels label[for="radio2"] .switcher,
+#radio3:active ~ .controls > .labels label[for="radio3"] .switcher,
+#radio4:active ~ .controls > .labels label[for="radio4"] .switcher{
+	background: lightgreen;
+   
+}
+
